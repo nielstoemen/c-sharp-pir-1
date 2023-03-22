@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.ComponentModel.Design;
+using System.IO;
 
 namespace week4_c_sharp
 {
@@ -89,9 +90,8 @@ namespace week4_c_sharp
 
 
             Console.WriteLine("exercise 4.26");
-            string list = File.ReadAllText("names.txt");
-            string otherList = File.ReadAllText("other-names.txt");
-            Console.WriteLine(list + otherList);
+            string[] list = File.ReadAllLines("names.txt");
+            string[] otherList = File.ReadAllLines("other-names.txt");
             List<Person> persons = new List<Person>();
 
             foreach (string line in list)
@@ -99,8 +99,23 @@ namespace week4_c_sharp
                 string[] pieces = line.Split(",");
                 string name = pieces[0];
 
-                persons.Add(name);
+                persons.Add(new Person(name));
             }
+
+            foreach (string line in otherList)
+            {
+                string[] pieces = line.Split(",");
+                string name = pieces[0];
+
+                persons.Add(new Person(name));
+            }
+
+            foreach(var line in persons)
+            {
+                string[] test = line.name.Split(" ");
+                Console.WriteLine(test);
+            }
+
 
 
 
