@@ -110,10 +110,9 @@ namespace week4_c_sharp
                 persons.Add(new Person(name));
             }
 
-            foreach(var line in persons)
+            foreach(Person line in persons)
             {
-                string[] test = line.name.Split(" ");
-                Console.WriteLine(test);
+                Console.WriteLine(line.name);
             }
 
 
